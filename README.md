@@ -1,6 +1,8 @@
 # HelloAndroidJNI
 Show using c++ class in android JNI using ndkbuild.
+
 参考
+
 1、jni中使用c++ class demo
 https://github.com/myrddinus/HelloJNI
 
