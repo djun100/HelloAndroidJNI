@@ -2,8 +2,7 @@ package com.example.testclass;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
@@ -12,53 +11,21 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-//        int number = 10;
-//    	int[] data = new int[number];
-//    	for (int i = 0; i < number; i++)
-//    	{
-//    		data[i] = i;
-//    	}
-//
-//        AndroidClass test=new AndroidClass(data,number);
-//        System.out.println("test-----"+test.calcSum());
-//        System.out.println("test-----"+test.calcMean());        
-//        test.AndroidClassFree();
 
-    	
-        int number = 1000*1000;
+        int number = 10;
     	int[] data = new int[number];
-    	for (int i = 0; i < number; i++)
-    	{
+    	for (int i = 0; i < number; i++) {
     		data[i] = i;
     	}
 
-    	for(int i=0;i<1000;i++)
-    	{
+    	for(int i=0;i<2;i++) {
 	        AndroidClass test=new AndroidClass(data,number);
-	        System.out.println("test-----"+i+"   "+test.calcSum());
-	        System.out.println("test-----"+i+"   "+test.calcMean());        
+	        System.out.println("test sum-----"+i+"   "+test.calcSum());
+	        System.out.println("test mean-----"+i+"   "+test.calcMean());
+            ((TextView)findViewById(R.id.mtv)).setText(
+                    "test sum-----"+i+"   "+test.calcSum()+"\n"+
+                    "test mean-----"+i+"   "+test.calcMean());
 	        test.AndroidClassFree();
     	}
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

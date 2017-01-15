@@ -10,8 +10,13 @@ android {
         targetSdkVersion 7
 
         ndk {
-            moduleName "libHelloJNI"
+//            moduleName "libHelloJNI"
             abiFilters 'armeabi'
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions"
+            }
         }
     }
 
@@ -22,8 +27,11 @@ android {
         }
     }
     externalNativeBuild {
-        ndkBuild {
-            path 'src/main/jni/Android.mk'
+//        ndkBuild {
+//            path 'src/main/jni/Android.mk'
+//        }
+        cmake {
+            path "CMakeLists.txt"
         }
     }
 }

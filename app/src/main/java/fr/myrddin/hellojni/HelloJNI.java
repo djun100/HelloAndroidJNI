@@ -17,6 +17,6 @@ public class HelloJNI
 
 	static
 	{
-		System.loadLibrary("HelloJNI");
+		System.loadLibrary("native-lib");
 	}
 }
