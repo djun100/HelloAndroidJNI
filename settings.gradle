@@ -1,1 +1,1 @@
-include ':app', ':testClass2'
+include ':app', ':ndkbuild', ':cmake'
