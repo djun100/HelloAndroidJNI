@@ -8,10 +8,11 @@ public class HelloJNI
 	private native int jniGiveMeANumber();
 
 	// java methods
-	public void giveMeANumber()
+	public int giveMeANumber()
 	{
 		int num = jniGiveMeANumber();
 		Log.e("JNI", "Number : " + num );
+		return num;
 	}
 
 	static
