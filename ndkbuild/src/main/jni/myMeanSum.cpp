@@ -1,6 +1,7 @@
 ﻿
 // myMeanSum.cpp文件
 
+#include <string.h>
 #include "myMeanSum.h"
 
 

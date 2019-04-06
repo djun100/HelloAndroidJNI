@@ -1,17 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "fr.myrddin.hellojni"
-        minSdkVersion 7
-        targetSdkVersion 7
+        minSdkVersion 14
+        targetSdkVersion 28
 
         ndk {
 //            moduleName "libHelloJNI"
-            abiFilters 'armeabi'
+            abiFilters 'armeabi-v7a'
         }
         externalNativeBuild {
             cmake {
