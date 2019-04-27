@@ -6,8 +6,9 @@ add_library( # Sets the name of the library.
              # Sets the library as a shared library.
              SHARED
 
-             src/main/cpp/HelloJNI.cpp
-             src/main/cpp/HelloJNI2.cpp
+        src/main/cpp/jni/HelloJNI.cpp
+        src/main/cpp/algrithm/jni.cpp
+        src/main/cpp/jniMethodMap/hellojni.cpp
               )
 
 find_library( # Sets the name of the path variable.

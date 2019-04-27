@@ -1,20 +1,29 @@
 apply plugin: 'com.android.application'
 
+def useCmake = true
+
 android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "fr.myrddin.hellojni"
+        applicationId "com.cy.jni"
         minSdkVersion 14
         targetSdkVersion 28
 
-        ndk {
+        if (useCmake) {
+            ndk {
 //            moduleName "libHelloJNI"
-            abiFilters 'armeabi-v7a'
-        }
-        externalNativeBuild {
-            cmake {
-                cppFlags "-std=c++11 -frtti -fexceptions"
+                abiFilters 'armeabi-v7a'
+            }
+            externalNativeBuild {
+                cmake {
+                    cppFlags "-std=c++11 -frtti -fexceptions"
+                }
+            }
+        } else {
+            ndk {
+                moduleName "AndroidClass"
+                abiFilters 'armeabi-v7a'
             }
         }
     }
@@ -25,12 +34,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
-    externalNativeBuild {
-//        ndkBuild {
-//            path 'src/main/jni/Android.mk'
+
+//    flavorDimensions "default"
+//    productFlavors {
+//        cmake {
+//            useCmake=true
 //        }
-        cmake {
-            path "CMakeLists.txt"
+//        ndkBuild {
+//            useCmake=false
+//        }
+//    }
+
+
+    externalNativeBuild {
+        if (useCmake) {
+            cmake {
+                path "CMakeLists.txt"
+            }
+        } else {
+            ndkBuild {
+                path 'src/main/jni/Android.mk'
+            }
         }
     }
+}
+
+dependencies {
+    implementation 'com.github.djun100:UtilAndroid:-SNAPSHOT'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:support-v4:28.0.0'
 }
