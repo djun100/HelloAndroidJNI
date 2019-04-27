@@ -38,33 +38,7 @@ public class JNISvr {
                 
         return data2;
     }
-    
-    
-    public String getJNIString() {
-        
-        return _getJNIString();
-    }
-    
-    public void testCallBack() {
-        
-        _testCallBack();
-    }
-    
-    public void testStaticCallBack() {
-        
-        _testStaticCallBack();
-    }
-    
-    public void setJavaData(int value) {
-        
-        _setJavaData(value);
-    }
-    
-    
-    public void setJavaStaticData(int value) {
-        
-        _setJavaStaticData(value);
-    }
+
 
     public interface onJNIListener {
         
@@ -93,10 +67,10 @@ public class JNISvr {
     // ---------------------------------------------------------
     // Native methods called from the Java side
     // --------------------    
-    private native final String _getJNIString();
-    private native final void _testCallBack();
-    private native static final void _testStaticCallBack();
-    private native final void _setJavaData(int i);
-    private native static final void _setJavaStaticData(int i);
+    public native final String getJNIString();
+    public native final void testCallBack();
+    public native static final void testStaticCallBack();
+    public native final void setJavaData(int i);
+    public native static final void setJavaStaticData(int i);
 
 }

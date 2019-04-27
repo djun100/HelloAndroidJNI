@@ -101,11 +101,11 @@ static void setJavaStaticData(JNIEnv *env, jobject clazz, jint value)
  * signature, and a pointer to the native implementation.
  */
 static const JNINativeMethod gMethods[] = {
-    {"_getJNIString", "()Ljava/lang/String;", (void*)getJNIString},
-    {"_testCallBack", "()V", (void*)testCallBack},
-    {"_testStaticCallBack", "()V", (void*)testStaticCallBack},
-    {"_setJavaData", "(I)V", (void*)setJavaData},
-    {"_setJavaStaticData", "(I)V", (void*)setJavaStaticData},
+    {"getJNIString", "()Ljava/lang/String;", (void*)getJNIString},
+    {"testCallBack", "()V", (void*)testCallBack},
+    {"testStaticCallBack", "()V", (void*)testStaticCallBack},
+    {"setJavaData", "(I)V", (void*)setJavaData},
+    {"setJavaStaticData", "(I)V", (void*)setJavaStaticData},
 };
 
 static int registerMethods(JNIEnv* env) {
